@@ -1,21 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0"
-	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-
-	<persistence-unit name="icat" transaction-type="JTA">
+<persistence
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/persistence"
+	version="2.0">
+	<persistence-unit transaction-type="RESOURCE_LOCAL"
+		name="sql-pu">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-		<jta-data-source>jdbc/icat</jta-data-source>
+		<!-- <jta-data-source>jdbc/icat</jta-data-source> -->
+		<class>model.EntityBaseBean</class>
+		<class>model.Application</class>
+		<class>model.Comment</class>
+		<class>model.DataCollection</class>
+		<class>model.DataCollectionDatafile</class>
+		<class>model.DataCollectionDataset</class>
+		<class>model.DataCollectionParameter</class>
+		<class>model.DatafileFormat</class>
+		<class>model.Datafile</class>
+		<class>model.DatafileParameter</class>
+		<class>model.DatasetParameter</class>
+		<class>model.DatasetType</class>
+		<class>model.FacilityCycle</class>
+		<class>model.Grouping</class>
+		<class>model.Instrument</class>
+		<class>model.InstrumentScientist</class>
+		<class>model.Investigation</class>
+		<class>model.InvestigationGroup</class>
+		<class>model.InvestigationInstrument</class>
+		<class>model.InvestigationParameter</class>
+		<class>model.InvestigationType</class>
+		<class>model.InvestigationUser</class>
+		<class>model.Job</class>
+		<class>model.Keyword</class>
+		<class>model.Log</class>
+		<class>model.Parameter</class>
+		<class>model.ParameterType</class>
+		<class>model.ParameterValue</class>
+		<class>model.PermissibleStringValue</class>
+		<class>model.Publication</class>
+		<class>model.PublicStep</class>
+		<class>model.RelatedDatafile</class>
+		<class>model.Rule</class>
+		<class>model.Sample</class>
+		<class>model.SampleParameter</class>
+		<class>model.SampleType</class>
+		<class>model.Session</class>
+		<class>model.Shift</class>
+		<class>model.Study</class>
+		<class>model.StudyInvestigation</class>
+		<class>model.StudyStatus</class>
+		<class>model.User</class>
+		<class>model.UserGroup</class>
+		<class>model.Facility</class>
+		<class>model.Dataset</class>
 		<properties>
-			<property name="eclipselink.cache.shared.default" value="false" />
-			<property name="eclipselink.logging.level" value="SEVERE" />
-			<!-- <property name="eclipselink.logging.level" value="FINE" /> -->
-			<!-- <property name="eclipselink.logging.level.sql" value="FINE" /> -->
-			<!-- <property name="eclipselink.logging.parameters" value="true" /> -->
-			<property name="eclipselink.ddl-generation" value="create-tables" />
-			<property name="eclipselink.ddl-generation.output_mode"
-				value="both" />
+			<property name="eclipselink.target-database" value="Oracle" />
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:oracle:thin:@//lcgdb02-vip.gridpp.rl.ac.uk:1521/orisa.gridpp.rl.ac.uk" />
+			<property name="javax.persistence.jdbc.user" value="testicat_isis43" />
+			<property name="javax.persistence.jdbc.password" value="Et9gcPh4fp9f5YP" />
+			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.logging.timestamp" value="false" />
+			<property name="eclipselink.logging.thread" value="false" />
+			<property name="eclipselink.logging.session" value="false" />
+			<property name="eclipselink.logging.exceptions" value="false" />
+			<property name="eclipselink.logging.connection" value="false" />
+			<property name="eclipselink.composite-unit.member" value="true" />
 		</properties>
 	</persistence-unit>
-
 </persistence>
